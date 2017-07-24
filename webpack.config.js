@@ -1,3 +1,6 @@
+const touch = require('touch');
+touch.sync('./.env');
+
 const glob = require('glob');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');

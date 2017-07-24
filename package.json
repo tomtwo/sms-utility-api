@@ -15,7 +15,8 @@
     "koa-convert": "^1.2.0",
     "koa-router": "next",
     "serverless": "^1.18.0",
-    "serverless-http": "^1.4.3"
+    "serverless-http": "^1.4.3",
+    "touch": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
