@@ -15,10 +15,14 @@ try {
 class NexmoService {
   sendTextMessage(sender, receiver, content) {
     return new Promise((resolve, reject) => {
+      console.log(`sending message to ${receiver}..`);
+
       nexmo.sendTextMessage(sender, receiver, content, function(err, res) {
         if (err) {
+          console.log(`..failed to send message to ${receiver}`);
           reject(err);
         } else {
+          console.log(`..message sent to ${receiver}`);
           resolve(res);
         }
       });
