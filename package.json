@@ -1,0 +1,59 @@
+{
+  "name": "sms-utility-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/start.js",
+  "engines": {
+    "node": ">=6.10.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "dotenv": "^4.0.0",
+    "easynexmo": "^0.8.5",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-router": "next",
+    "serverless": "^1.18.0",
+    "serverless-http": "^1.4.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-module-resolver": "^2.7.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-async-to-bluebird": "^1.1.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-watch": "^2.0.6",
+    "copy-webpack-plugin": "^4.0.1",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "flow-bin": "^0.42.0",
+    "json-loader": "^0.5.4",
+    "koa-flow-declarations": "^0.1.0",
+    "serverless-offline": "^3.13.1",
+    "serverless-webpack": "^1.0.0-rc.4",
+    "webpack": "^2.3.2",
+    "webpack-node-externals": "^1.5.4"
+  },
+  "scripts": {
+    "build": "npm run lint && npm run webpack",
+    "start": "node .webpack/handler-local",
+    "dev": "babel-watch ./handler-local",
+    "inspect": "babel-node --inspect handler-local",
+    "offline": "sls offline --location .webpack",
+    "lint": "npm run eslint && npm run flow",
+    "eslint": "eslint .",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "webpack": "webpack --config webpack.config.js",
+    "webpack-watch": "webpack --config webpack.config.js --watch"
+  }
+}

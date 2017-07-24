@@ -1,0 +1,38 @@
+service: sms-utility-api
+frameworkVersion: "=1.18.0" # serverless npm version
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: eu-west-2
+#  environment:
+#    MY_VAR: abc
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpackIncludeModules: true
+
+functions:
+  # regular AWS lambda entrypoint
+  hello:
+    handler: handler-hello.index
+    events: 
+      - http: GET /hello
+      - http: GET /hello/multiple/entrypoints
+    # - schedule: rate(10 minutes)
+
+  # generic HTTP entrypoint, handles any leftover routes
+  # (using koa + serverless-http)
+  server:
+    handler: handler-server.index
+    events:
+      - http:
+          path: / # this matches the base path
+          method: ANY
+      - http:
+          path: /{any+} # matches any path, see handler-server.js
+          method: ANY

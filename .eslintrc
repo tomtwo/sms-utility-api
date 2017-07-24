@@ -1,0 +1,23 @@
+{
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
+  "rules": {
+    "no-duplicate-imports": 0,
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
+    "semi": 0,
+    "no-unused-vars": 1,
+    "space-before-function-paren": 0,
+    "comma-dangle": 0,
+
+
+    "flowtype/space-after-type-colon": [
+      2,
+      "always"
+    ],
+    "flowtype/valid-syntax": 1
+  }
+}
