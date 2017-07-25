@@ -13,6 +13,22 @@ try {
 }
 
 class NexmoService {
+  getBalance() {
+    return new Promise((resolve, reject) => {
+      console.log('fetching balance..');
+
+      nexmo.checkBalance((err, res) => {
+        if (err) {
+          console.log('failed to check balance:', err);
+          reject(err);
+        } else {
+          console.log('fetched balance:', res);
+          resolve(res);
+        }
+      });
+    });
+  }
+
   sendTextMessage(sender, receiver, content) {
     return new Promise((resolve, reject) => {
       console.log(`sending message to ${receiver}..`);
