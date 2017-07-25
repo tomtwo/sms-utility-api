@@ -19,10 +19,10 @@ class NexmoService {
 
       nexmo.sendTextMessage(sender, receiver, content, function(err, res) {
         if (err) {
-          console.log(`..failed to send message to ${receiver}`);
+          console.log(`..failed to send message to ${receiver}`, err);
           reject(err);
         } else {
-          console.log(`..message sent to ${receiver}`);
+          console.log(`..message sent to ${receiver}`, res);
           resolve(res);
         }
       });
